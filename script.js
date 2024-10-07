@@ -19,24 +19,9 @@ function speak(text){
 }
 
 function logout(){
-    window.location.href = "index.html";
+    window.location.href = "Login/index.html";
 }
 
-function wishMe(){
-    let day=new Date()
-    let hours=day.getHours()
-    if(hours>=0 && hours<12){
-        speak("Good Morning Sir")
-    }
-    else if(hours>=12 && hours <16){
-        speak("Good afternoon Sir")
-    }else{
-        speak("Good Evening Sir")
-    }
-}
-// window.addEventListener('load',()=>{
-//     wishMe()
-// })
 let speechRecognition= window.SpeechRecognition || window.webkitSpeechRecognition 
 let recognition =new speechRecognition()
 recognition.onresult=(event)=>{
@@ -45,6 +30,13 @@ recognition.onresult=(event)=>{
     content.innerText=transcript
    takeCommand(transcript.toLowerCase())
 }
+
+function welcome(){
+    speak(`hello ${usercheck},how can i help you?`)
+}
+window.addEventListener('load',()=>{
+    welcome()
+})
 
 btn.addEventListener("click",()=>{
     recognition.start()
@@ -58,7 +50,7 @@ function takeCommand(message){
         speak("hello sir,what can i help you?")
     }
     else if(message.includes("who are you")){
-        speak("i am virtual assistant ,created by Ayush Sir")
+        speak("i am virtual assistant, created for echancing task and complete fast to save time");
     }else if(message.includes("open youtube")){
         speak("opening youtube...")
         window.open("https://youtube.com/","_blank")
@@ -83,7 +75,7 @@ function takeCommand(message){
         speak("opening whatsapp..")
         window.open("whatsapp://")
     }
-    else if(message.includes("time")){
+    else if(message.includes("time") || (message.includes("what the time"))){
       let time=new Date().toLocaleString(undefined,{hour:"numeric",minute:"numeric"})
       speak(time)
     }

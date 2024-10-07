@@ -58,7 +58,93 @@ cursor: pointer;
 header{
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
+
+/* AI CODE */
+.nav {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav li {
+    margin-right: 20px;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .nav li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .nav li:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .nav li:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .nav li:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  
+  .nav li:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  
+  .nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: "Protest Guerrilla", sans-serif;
+    transition: color 0.2s ease;
+  }
+  
+  .nav a:hover {
+    color: #ccc;
+  }
+  
+  .nav .active {
+    color: #fff;
+    border-bottom: 3px solid #fff;
+  }
+  
+  .nav li::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .nav li:hover::before {
+    transform: scaleX(1);
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+/* AI CODE END */
+
+
+
 .username{
     display: flex;
     gap: 1rem;
@@ -67,6 +153,8 @@ header{
 #username{
     color: white;
     font-size: 1.1rem;
+    font-family: "Protest Guerrilla", sans-serif;
+    letter-spacing: 2px;
 }
 .username .logout {
     padding: 10px 20px;
@@ -75,10 +163,10 @@ header{
     background-color: #6b6b6b;
     color: #fff;
     cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    font-family: "Protest Guerrilla", sans-serif;
     transition: transform 0.2s ease-in-out;
-  }
-  #user{
-    font-weight: 800;
   }
   
   .logout:hover {
@@ -87,15 +175,25 @@ header{
   }
 
 .menu-toggle {
+    display: none;
     font-size: 25px;
     cursor: pointer;
     padding: 13px;
-    background-color: #333;
+    background-color: #6b6b6b;
     color: white;
+    letter-spacing: 2px;
+    font-family: "Protest Guerrilla", sans-serif;
 }
 .menu-toggle:hover {
     background-color: #444;
     color: #fff;
+  }
+  /* Responsive  */
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
   }
 
 .sidenav {
@@ -182,81 +280,3 @@ header{
   .dark-theme-footer .social-links a:hover {
     color: #ccc;
   }
-
-
-header{
-    width: 100%;
-}
-/* .navbar {
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    margin-top: 1.2rem;
-}
-
-.menu {
-    display: flex;
-    gap: 5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.menu-item {
-    position: relative;
-}
-
-.menu-item a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 800;
-    transition: all 0.5s;
-}
-
-.menu-item a:hover {
-    /* background: #b1b1b1; */
-    /* font-size: 1.5rem; */
-/* } */
-
-/* .dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #333;
-    top: 100%;
-    left: 0;
-    list-style: none;
-    min-width: 200px;
-}
-
-.dropdown-menu li a {
-    padding: 10px 20px;
-}
-
-.menu-item:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li a:hover {
-    color: white;
-    font-size: 1.2rem;
-}
-.navbar ul li a::before{
-    position: absolute;
-    content: "";
-    bottom: -3px;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background-color: #077b32;
-    transition: 0.3s linear;
-}
-.dropdown-menu li a::before{
-    width: 100%;
-}
-
-.dropdown-menu li a:hover{
-    color: aqua;
-} */ */ */
