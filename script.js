@@ -51,7 +51,7 @@ function takeCommand(message){
    voice.style.display="none"
     btn.style.display="flex"
     if(message.includes("hello")||message.includes("hey")){
-        speak("hello, what can i help you?")
+        speak("hello, how can i help you?")
     }
     else if(message.includes("who are you")){
         speak("i am virtual assistant, created for echancing task and complete fast to save time");
@@ -87,6 +87,11 @@ function takeCommand(message){
         let date=new Date().toLocaleString(undefined,{day:"numeric",month:"short"})
         speak(date)
     }
+    else if (message.includes("play") && message.includes("on youtube")) {
+        let song = message.replace("play", "").replace("on youtube", "").trim();
+        speak(`playing ${song} on youtube...`);
+        window.open(`https://www.youtube.com/search?q=${song}`, "_blank");
+      }
 
     else if(message.includes("chuup chutiye") || (message.includes("jaa naa lodee")) || (message.includes("bhen ke lode"))){
         speak("Teri maa ki chooott lodeee");
