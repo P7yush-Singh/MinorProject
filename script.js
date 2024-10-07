@@ -93,7 +93,7 @@ function takeCommand(message){
         window.open(`https://www.youtube.com/search?q=${song}`, "_blank");
       }
 
-    else if(message.includes("chuup chutiye") || (message.includes("jaa naa lodee")) || (message.includes("bhen ke lode"))){
+    else if(message.includes("chup chutiye") || (message.includes("jaa naa lodee")) || (message.includes("bhen ke lode")) || (message.includes("jana lodee"))){
         speak("Teri maa ki chooott lodeee");
       }
       else if(message.includes("bhen ke lode jyada boldega") || (message.includes("jyada bolega"))){
