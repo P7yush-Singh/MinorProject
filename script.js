@@ -42,12 +42,16 @@ btn.addEventListener("click",()=>{
     recognition.start()
     voice.style.display="block"
     btn.style.display="none"
+    setTimeout(function(){
+        voice.style.display = "none"
+        btn.style.display = "block"
+    }, 5000);
 })
 function takeCommand(message){
    voice.style.display="none"
     btn.style.display="flex"
     if(message.includes("hello")||message.includes("hey")){
-        speak("hello sir,what can i help you?")
+        speak("hello, what can i help you?")
     }
     else if(message.includes("who are you")){
         speak("i am virtual assistant, created for echancing task and complete fast to save time");
@@ -82,10 +86,19 @@ function takeCommand(message){
     else if(message.includes("date")){
         let date=new Date().toLocaleString(undefined,{day:"numeric",month:"short"})
         speak(date)
+    }
+
+    else if(message.includes("chuup chutiye") || (message.includes("jaa naa lodee")) || (message.includes("bhen ke lode"))){
+        speak("Teri maa ki chooott lodeee");
       }
+      else if(message.includes("bhen ke lode jyada boldega") || (message.includes("jyada bolega"))){
+        speak("choop Randi ke");
+      }
+
     else{
         let finalText="this is what i found on internet regarding" + message.replace("shipra","") || message.replace("shifra","")
         speak(finalText)
         window.open(`https://www.google.com/search?q=${message.replace("shipra","")}`,"_blank")
     }
+    
 }
